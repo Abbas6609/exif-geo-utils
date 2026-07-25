@@ -127,6 +127,31 @@ boundingBox({ latitude: 43.6426, longitude: -79.3871 }, 1000);
 | `toOSMURL(coord, zoom?)` | OpenStreetMap link |
 | `boundingBox(center, radius)` | Bounding box around a point |
 
+## Why this package?
+
+Working with GPS coordinates in image metadata is surprisingly tricky. Different tools use different formats — EXIF stores GPS as arrays of degrees/minutes/seconds, Google Maps uses decimal degrees, and many cameras output DMS strings with direction letters.
+
+This package was extracted from [GeoImageTagger](https://geoimagetagger.com), where we handle thousands of coordinate conversions daily across our image tools:
+
+- **[Metadata Viewer](https://geoimagetagger.com/tools/metadata-viewer)** — reads GPS coordinates from EXIF, IPTC, and XMP tags and displays them on an interactive map. Uses `fromExifGPS()` and `toGoogleMapsURL()` under the hood.
+- **[Metadata Editor](https://geoimagetagger.com/tools/metadata-editor)** — lets users manually set or correct GPS coordinates in their photos. Uses `toExifGPS()` to write coordinates back to EXIF format and `isValidCoordinate()` for input validation.
+- **[AI Location Finder](https://geoimagetagger.com/tools/location-finder)** — uses AI to detect where a photo was taken from visual landmarks. Returns decimal coordinates that are converted to EXIF-compatible format using `coordinateToDMS()`.
+- **[EXIF Remover](https://geoimagetagger.com/tools/exif-remover)** — strips GPS and other sensitive metadata from images before sharing online. Uses coordinate parsing to show users exactly what location data is being removed.
+
+### Common workflows
+
+| If you need to... | Use this with... |
+|---|---|
+| Add GPS to photos for Local SEO | [GeoImageTagger](https://geoimagetagger.com) + `toExifGPS()` |
+| View where a photo was taken | [Metadata Viewer](https://geoimagetagger.com/tools/metadata-viewer) + `fromExifGPS()` |
+| Remove location data for privacy | [EXIF Remover](https://geoimagetagger.com/tools/exif-remover) |
+| Compress geotagged images | [Image Compressor](https://geoimagetagger.com/tools/image-compressor) (preserves metadata) |
+| Convert HEIC to JPG with GPS intact | [Image Converter](https://geoimagetagger.com/tools/image-converter) |
+| Edit photos and keep metadata | [Image Editor](https://geoimagetagger.com/tools/image-editor) |
+| Add watermarks to geotagged photos | [Watermark Tool](https://geoimagetagger.com/tools/watermark) |
+
+All tools are free, work in the browser, and require no sign-up.
+
 ## License
 
 MIT © [Tosief Abbas](https://geoimagetagger.com)

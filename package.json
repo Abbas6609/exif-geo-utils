@@ -1,6 +1,6 @@
 {
   "name": "exif-geo-utils",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Lightweight GPS coordinate utilities for image geotagging — convert between DMS and decimal degrees, validate coordinates, calculate distances, and format for EXIF metadata.",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
