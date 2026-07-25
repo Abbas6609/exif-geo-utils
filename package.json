@@ -1,0 +1,46 @@
+{
+  "name": "exif-geo-utils",
+  "version": "1.0.0",
+  "description": "Lightweight GPS coordinate utilities for image geotagging — convert between DMS and decimal degrees, validate coordinates, calculate distances, and format for EXIF metadata.",
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsup src/index.ts --format cjs,esm --dts",
+    "test": "node test.js",
+    "prepublishOnly": "npm run build"
+  },
+  "keywords": [
+    "exif",
+    "gps",
+    "geotag",
+    "geotagging",
+    "coordinates",
+    "latitude",
+    "longitude",
+    "dms",
+    "decimal-degrees",
+    "image-metadata",
+    "iptc",
+    "xmp",
+    "photography",
+    "maps"
+  ],
+  "author": "Tosief Abbas <geoimagetagger@gmail.com>",
+  "license": "MIT",
+  "homepage": "https://geoimagetagger.com",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Abbas6609/exif-geo-utils"
+  },
+  "bugs": {
+    "url": "https://github.com/Abbas6609/exif-geo-utils/issues"
+  },
+  "devDependencies": {
+    "tsup": "^8.0.0",
+    "typescript": "^5.0.0"
+  }
+}
